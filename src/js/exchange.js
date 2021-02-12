@@ -1,10 +1,14 @@
 export default class ExchangeService {
-  constructor(side1, side2) {
-    this.side1 = side1;
-    this.side2 = side2;
-  }
-
-  getArea() {
-    return this.side1 * this.side2;
+  static getConvertedAmount() {
+    return fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`)
+      .then(function (response) {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response.json();
+      })
+      .catch(function (error) {
+        return error;
+      })
   }
 }
