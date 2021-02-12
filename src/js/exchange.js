@@ -1,4 +1,4 @@
-export default class Rectangle {
+export default class Exchange {
   constructor(side1, side2) {
     this.side1 = side1;
     this.side2 = side2;
