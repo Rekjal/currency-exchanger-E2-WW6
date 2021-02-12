@@ -20,6 +20,8 @@ $(document).ready(function () {
     const inputAmount = $("#amount").val();
     const inputBaseCurrency = $("#baseCurrency").val();
     const inputTargetCurrency = $("#targetCurrency").val();
+    
+    
 
     ExchangeService.getCurrentRate()
       .then(function (response) {
