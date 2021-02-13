@@ -29,9 +29,9 @@
 
 1. Clone this repository.
 2. To download node modules, run `npm install`
-3. Create an '.env' FILE in your project root directory.
-    * Register for free API key: Visit: https://www.exchangerate-api.com/  & enter register yourself to get a free key.
-    * Once registration is complete, log in using the new credentials, add API key in .env file using syntax: "API_KEY=[Your API KEY]" (No double quotes and No brackets)
+3. Create an '.env' FILE in project root directory.
+    * Register for free API key: Visit: https://www.exchangerate-api.com/  & self-register to get a free key.
+    * Once registration is complete, log in using the new credentials, and add API key in .env file using syntax: "API_KEY=[Your API KEY]" (No double quotes and No brackets)
     * Add .env to .gitignore
 4. To do a build and run application on a dev server, run 	`npm run start`
 
