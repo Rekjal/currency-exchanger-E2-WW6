@@ -18,8 +18,6 @@
 
 | **Spec** |
 
-```
-
 | Test | Behavior | Input    | Output   |
 | -------- | -------- | -------- | -------- |
 | 1 | Application lets user type in an amount, choose FROM and TO currencies from the drop down, and see total amount in converted currency | USD: $100.00; Currency: Indian Rupee (INR) | 7271.48 INR |
@@ -27,7 +25,6 @@
 | 3 | The program displays API call failures | * Insert a typo in API KEY* | Unexpected error: undefined |
 | 4 | If currency conversion is sought for a currency not supported by API, application returns a notification, stating the currency is NOT supported | FED | non-existant currency (FED) is NOT supported  |
 
-```
 ## Setup/Installation Requirements
 
 1. Clone this repository.
