@@ -15,12 +15,12 @@ function getElements(response, inputAmount, inputBase, inputTarget) {
 }
 
 $(document).ready(function () {
-  $('#weatherLocation').click(function (event) {
+  $('#currencyForm').click(function (event) {
     event.preventDefault();
     const inputAmount = $("#amount").val();
     const inputBaseCurrency = $("#baseCurrency").val();
     const inputTargetCurrency = $("#targetCurrency").val();
-
+    alert(inputAmount);
 
 
     ExchangeService.getCurrentRate()
