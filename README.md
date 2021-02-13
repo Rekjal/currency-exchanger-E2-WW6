@@ -1,126 +1,66 @@
+
 # Currency Exchanger
 
-##### Date: **2/12/2021**
+##### Date: **02/12/2021**
 
 #### By **_Salim Mayan_**
 
 ## Description
 
-A web application for a Pizza company where a user can choose one or more individual toppings (upto **seven**: Mushrooms, Kosher, Meat, Onions, Sausage, Bacon, Green Peppers, and Black Peppers) and a size (upto **four**: Small, Medium, Large, and Extra Large) to order a pizza and see the final cost.
+##### A web application where a user can type in an amount (in a currency of choice), choose FROM and TO currencies from the drop down, and see total amount in converted currency. The currency conversion is performed using the most recent exchange rate from ExchangeRate-API. Few other things that the application does is listed below...
 
-- Allows user to choose toppings and size for the pizza they'd like to order.
+- Users should be able to convert between 160 different types of currencies.
+- If the API call results in an error, the application returns a notification
+- If the query response doesn't include that particular currency, the application should return a notification that states the currency in question doesn't exist
+- If both TO and FROM currencies are same, application displays an error message
 
-- Allows user to order more than one pizza with different toppings.
-
-- Created a pizza object constructor with properties for toppings and size.
-
-- Created a prototype method for the cost of a pizza depending on the selections chosen.
+- See below image of UI for the different scenario's described above
+![Image of UI for 3 different age Selections](./src/assets/images/PrintScreenShot.png)
 
 ## Description
 
 #### Further Exploration
 
-##### Added additional features:
+| **Spec** |
 
-- Styled site with CSS/image/animation.
+```
+Describe: Calculator.prototype.planetId()
 
-- In `Order summary` relist toppings that user chose for each Pizza
+Test: "It should return the "planetId" property incremented by 1 with each call"
 
-- Offers `Carryout` and `Delivery` options (Later requires user to enter `Address` information).
+Expect(Calculator.planetId.toEqual(0);
 
-- Provides an `Order Number` which is based of `Epoch Time`
+Describe: Calculator.prototype.addPlanet(agePlanetBased: 187, estLifeExp: 277 })
 
-- Provides an `Estimated Delivery Time` (for customer who choose `Delivery` option) which is roughly `Epoch Time` + 30 mins
+Test: "It should append a single object to "agePerPlanet()" property with each call"
 
-- Included a `Refresh` (or `Go Back To Landing Page`) option should the user wish to restart order
+Expect(Calculator.agePerPlanet.toEqual({ mercury: { agePlanetBased: 187, estLifeExp: 277 } });
 
-##_**Example:**_ If a user Chose ...
+Describe: Calculator.prototype.addAgeOnPlanets({ mercury: 0.24, venus: 0.62, earth: 1.00, mars: 1.88, jupiter: 11.86 }, { caucasian: 65, asian: 70, africanAmerican: 65, latino: 4 })
 
-*  `Delivery option` and entered `Name` and `Address`
+Test: "It should correctly call method "addAgeOnPlanets()" and return an object with schema shown below (calls "addPlanet()" method equal lenght of planet array"
 
-*  `Choose Your Pizza Size`as `Small ($10)`from drop down, clicked on `Mushrooms` and `Kosher Meat` from under `Choose Your Toppings ($2 each)`
+Expect(Calculator.agePerPlanet).toEqual({ mercury: { agePlanetBased: 187, estLifeExp: 277 }, venus: { agePlanetBased: 72, estLifeExp: 111 }, earth: { agePlanetBased: 45, estLifeExp: 72 }, mars: { agePlanetBased: 23, estLifeExp: 41 }, jupiter: { agePlanetBased: 3, estLifeExp: 12 } });
 
-*  `Choose Your Pizza Size`as `Medium ($12)`from drop down, clicked on `Mushrooms`, `Kosher Meat` and `Onions` from under `Choose Your Toppings ($2 each)`and `Submit`, the program shall display below content
+```
+## Running tests from terminal using Jest and webpack
 
-**JASON MULIG**, thank you for your Order!
-
-\# 1: Pizza Size : **Small**  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;$14
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Mushrooms
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Kosher Meat
-
-\# 2: Pizza Size : **Medium**  &nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;$18
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Mushrooms
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Kosher Meat
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Onions
-
-Total Cost &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp; $32
-
-Delivery Address&nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp; 8292 SW Childs Road, West Linn, Oregon - OR, ZIP-97035
-
-Order Number &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp; 1612007491849
-
-Approximate Delivery Time&nbsp;  &nbsp;  &nbsp;&nbsp;04:21:31 PST Sat Jan 30 2021
-
-##_**Example:**_ If a user chose...
-
-*  `Carryout option` and entered `Name`
-
-*  `Choose Your Pizza Size'`as `ExtraLarge ($16)`from drop down, clicked on `Bacon`, `Black Peppers` and `Green Perppers` from under `Choose Your Toppings ($2 each)`
-
-*  `Choose Your Pizza Size'`as `Large ($12)`from drop down, clicked on `Kosher Meat`, and `Onions` from under `Choose Your Toppings ($2 each)`
-
-*  `Choose Your Pizza Size'`as `ExtraLarge ($16)`from drop down, clicked on `MushroomsMeat`, `Kosher Meat`, `Onions`, `Sausage`, `Bacon`, `Green Peppers`, and `Black Peppers` from under `Choose Your Toppings ($2 each)`and `Submit`, the program shall display below content
-
-**TRAVIS SCOTT**, thank you for your Order!
-
-\# 1: Pizza Size : **ExtraLarge**  &nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;$22
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Mushrooms
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Kosher Meat
-
-\# 2: Pizza Size : **Large**  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$18
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Mushrooms
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Kosher Meat
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Onions
-
-\# 3: Pizza Size : **ExtraLarge**  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;$30
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Mushrooms
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Kosher Meat
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Onions
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Sausage
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Bacon
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Green Peppers
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Black Peppers
-
-Total Cost &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;$70
-
-Order Number &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;1612008241664
+-   Ensure sure you have Jest installed, else use  [this link](https://www.learnhowtoprogram.com/intermediate-javascript/test-driven-development-and-environments-with-javascript/setting-up-jest)  to install it on your machine 
+-   From main directory run  `$ npm run test`  to check if tests from  `__tests__`  directory pass or fail.
+-   _(Note: this project has 100% line coverage for business logic with Jest)_
 
 ## Setup/Installation Requirements
 
 1. Clone this repository.
-
-2. To run program open **_index.html_** from browser
-
-3. Page is also hosted on [Github](https://rekjal.github.io/pizza-Parlor-E2-WW4)
+2. To download node modules, run `npm install`
+3. Create an '.env' FILE in your project root directory.
+    * Register for free API key: Visit: https://www.exchangerate-api.com/  & enter register yourself to get a free key.
+    * Once registration is complete, log in using the new credentials, add API key in .env file using syntax: "API_KEY=[Your API KEY]" (No double quotes and No brackets)
+    * Add .env to .gitignore
+4. To do a build and run application on a dev server, run 	`npm run start`
 
 ## Known Bugs
+
 
 * No known bugs at this time.
 
@@ -136,12 +76,29 @@ Order Number &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nb
 
 * JQuery
 
+* Jest
+
+* Webpack
+
+* Node
+
+* npm
+
+* Markdown
+
+* Exchange Rate API
+
+
 ## Support and contact details
+
 
 _Email no one with any questions, comments, or concerns._
 
+
 ### License
 
+
 *{This software is licensed under the MIT license}*
+
 
 Copyright (c) 2021 **_{Salim Mayan}_**

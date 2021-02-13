@@ -6,18 +6,28 @@ import ExchangeService from './js/exchange.js';
 
 const roundToTwo = num => num.toFixed(2);
 
-const getResult = (response, inputAmount, inputBase, inputTarget) => {
+const getResult = (response, inputAmount, from, to) => {
   if (response.conversion_rates) {
-    console.log(`response:inputAmount:inputBase:inputTarget::::${response}:${inputAmount}:${inputBase}:${inputTarget}`);
-    const baseRate = response.conversion_rates[inputBase];
-    const targetRate = response.conversion_rates[inputTarget];
-    const convertedValue = roundToTwo((inputAmount/baseRate)*targetRate);
-    console.log(`${inputAmount}&nbsp${inputBase} = ${convertedValue}`);
-    $('.showResult').html(`<span class='blueColor'>${inputAmount}</span> <span class='greyColor'>${inputBase}</span> = <span class='blueColor'>${convertedValue}</span> <span class='greyColor'>${inputTarget}</span>`);
-  } else {
+    console.log(`response:inputAmount:from:to::::${response}:${inputAmount}:${from}:${to}`);
+    const baseRate = response.conversion_rates[from];
+    const targetRate = response.conversion_rates[to];
+    $('.hidden').show();
+    if (from === to) {
+      $('.showResult').html(`<span class='orangeRedColorLW'>The two chosen currencies are same (<span class='orangeRedWeight'>${from}</span>). Try a different combination</span>`);
+    }
+    else if (from === "FED" || to === "FED") { //this is meaningless
+      $('.showResult').html(`<span class='orangeRedColorLW'>This non-existant currency (<span class='orangeRedWeight'>FED</span>) is not NOT supported`);
+    }
+    else {
+      const convertedValue = roundToTwo((inputAmount / baseRate) * targetRate);
+      $('.showResult').html(`<span class='blueColor'>${inputAmount}</span> <span class='greyColor'>${from}</span> = <span class='blueColor'>${convertedValue}</span> <span class='greyColor'>${to}</span>`);
+    }
+  }
+  else {
+    $('.hidden').show();
     $('.showError').html(`Unexpected Error: <span class='redColor'>${response.message}</span>`);
   }
-}
+};
 
 $(document).ready(function () {
   ExchangeService.getCurrentRate()
@@ -26,11 +36,12 @@ $(document).ready(function () {
       let dataObject = JSON.parse(stringVersion);//parse creates an object (key is without quotes)
 
       $("form#currencyForm").submit(function (event) {
+        $('.hidden').hide();
         event.preventDefault();
         const inputtedAmount = $("#amount").val();
-        const inputtedBase = $("#from").val();
-        const inputtedTarget = $("#to").val();
-        getResult(dataObject, inputtedAmount, inputtedBase, inputtedTarget);
+        const inputtedFrom = $("#from").val();
+        const inputtedTo = $("#to").val();
+        getResult(dataObject, inputtedAmount, inputtedFrom, inputtedTo);
       });
     });
 });
