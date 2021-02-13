@@ -4,14 +4,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import ExchangeService from './js/exchange.js';
 
+const roundToTwo = num => num.toFixed(2);
+
 function getResult(response, inputAmount, inputBase, inputTarget) {
-  console.log("ia m here");
   if (response.conversion_rates) {
     console.log(`response:inputAmount:inputBase:inputTarget::::${response}:${inputAmount}:${inputBase}:${inputTarget}`);
     const baseRate = response.conversion_rates[inputBase];
     const targetRate = response.conversion_rates[inputTarget];
-    console.log(`${inputAmount}&nbsp${inputBase} = ${((inputAmount / baseRate) * targetRate)}`);
-    $('.showResult').text(`${inputAmount}&nbsp${inputBase} = ${((inputAmount / baseRate) * targetRate)}`);
+    const convertedValue = roundToTwo((inputAmount/baseRate)*targetRate);
+    console.log(`${inputAmount}&nbsp${inputBase} = ${convertedValue}`);
+    $('.showResult').text(`${inputAmount} ${inputBase} = ${convertedValue}`);
   } else {
     $('.showError').text(`Unexpected Error: ${response.message}`);
   }
