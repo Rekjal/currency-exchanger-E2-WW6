@@ -1,3 +1,100 @@
 body {
   background-color: lightblue;
 }
+
+.textBlueColor {
+  color: rgba(68, 68, 196, 0.945);
+}
+
+h1, p, ul, li {
+  font-family: 'Indie Flower', cursive;
+  font-weight: 700;
+}
+
+h2 {
+  font-family: 'Indie Flower', cursive;
+  font-weight: 700;
+  padding-left: 0.15%;
+}
+
+h3 {
+  font-family: 'Indie Flower', cursive;
+  font-weight: 700;
+  padding-left: 2.2%;
+}
+.coralColor {
+  color: coral;
+  font-family: 'Indie Flower', cursive;
+  font-weight: 700;
+  margin: auto;
+  padding:auto;
+  text-align: center;
+}
+
+.blueColor {
+  font-family: 'Indie Flower', cursive;
+  color: blue;
+  font-weight: 700;
+}
+
+.blackColor {
+  font-family: 'Indie Flower', cursive;
+  color: black;
+  font-weight: 700;
+}
+
+.greyColor {
+  font-family: 'Indie Flower', cursive;
+  color: grey;
+  font-weight: 700;
+}
+
+.goldColor {
+  font-family: 'Indie Flower', cursive;
+  color: coral;
+  font-weight: 700;
+}
+
+.fontResult {
+  font-size: 15px;
+}
+
+#h3ID {
+  display: none;
+
+}
+
+#output {
+  font-family: 'Indie Flower', cursive;
+  display: none;
+  margin-left:1.6%;
+  padding-top:0%;
+  margin-top:0%;
+  border-left: 2px solid coral;
+}
+
+#agePerPlanet {
+  font-family: 'Indie Flower', cursive;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size:medium;  
+}
+
+
+.container{
+  margin-top:0%;
+  font-weight: 700;    
+  padding-top:0%;
+
+}
+
+.demographic{
+  width: 50%;
+
+}
+
+.sex{
+  width: 50%;
+
+}
+
+
