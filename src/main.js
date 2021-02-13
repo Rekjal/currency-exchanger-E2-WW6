@@ -8,7 +8,7 @@ function getElements(response, inputAmount, inputBase, inputTarget) {
   if (response.conversion_rates) {
     const baseRate = response.converion_rates[inputBase];
     const targetRate = response.converion_rates[inputTarget];
-    $('.showResult').text(`${amount}&nbsp${inputBase} = ${((amount / baseRate) * targetRate)}`);
+    $('.showResult').text(`${inputAmount}&nbsp${inputBase} = ${((inputAmount / baseRate) * targetRate)}`);
   } else {
     $('.showErrors').text(`There was an error: ${response.message}`);
   }
@@ -20,12 +20,13 @@ $(document).ready(function () {
     const inputAmount = $("#amount").val();
     const inputBaseCurrency = $("#baseCurrency").val();
     const inputTargetCurrency = $("#targetCurrency").val();
-    
-    
+
+
 
     ExchangeService.getCurrentRate()
       .then(function (response) {
         let stringifiedResponse = JSON.stringify(response);
         getElements(stringifiedResponse, inputAmount, inputBaseCurrency, inputTargetCurrency);
       });
-  }
+  });
+});
