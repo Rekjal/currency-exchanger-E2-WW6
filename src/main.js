@@ -6,16 +6,16 @@ import ExchangeService from './js/exchange.js';
 
 const roundToTwo = num => num.toFixed(2);
 
-function getResult(response, inputAmount, inputBase, inputTarget) {
+const getResult = (response, inputAmount, inputBase, inputTarget) => {
   if (response.conversion_rates) {
     console.log(`response:inputAmount:inputBase:inputTarget::::${response}:${inputAmount}:${inputBase}:${inputTarget}`);
     const baseRate = response.conversion_rates[inputBase];
     const targetRate = response.conversion_rates[inputTarget];
     const convertedValue = roundToTwo((inputAmount/baseRate)*targetRate);
     console.log(`${inputAmount}&nbsp${inputBase} = ${convertedValue}`);
-    $('.showResult').text(`${inputAmount} ${inputBase} = ${convertedValue}`);
+    $('.showResult').html(`<span class='blueColor'>${inputAmount}</span> <span class='greyColor'>${inputBase}</span> = <span class='blueColor'>${convertedValue}</span> <span class='greyColor'>${inputTarget}</span>`);
   } else {
-    $('.showError').text(`Unexpected Error: ${response.message}`);
+    $('.showError').html(`Unexpected Error: <span class='redColor'>${response.message}</span>`);
   }
 }
 
@@ -30,8 +30,6 @@ $(document).ready(function () {
         const inputtedAmount = $("#amount").val();
         const inputtedBase = $("#from").val();
         const inputtedTarget = $("#to").val();
-        // console.log("I am here");
-        // console.log(`${JSON.stringify(response)}`);
         getResult(dataObject, inputtedAmount, inputtedBase, inputtedTarget);
       });
     });

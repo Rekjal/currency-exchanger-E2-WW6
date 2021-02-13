@@ -37,6 +37,12 @@ h3 {
   font-weight: 700;
 }
 
+.redColor {
+  font-family: 'Indie Flower', cursive;
+  color: red;
+  font-weight: 700;
+}
+
 .blackColor {
   font-family: 'Indie Flower', cursive;
   color: black;
