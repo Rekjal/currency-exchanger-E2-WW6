@@ -16,7 +16,7 @@ const getResult = (response, inputAmount, from, to) => {
       $('.showResult').html(`<span class='orangeRedColorLW'>The two chosen currencies are same (<span class='orangeRedWeight'>${from}</span>). Try a different combination</span>`);
     }
     else if (from === "FED" || to === "FED") { //this is meaningless
-      $('.showResult').html(`<span class='orangeRedColorLW'>This non-existant currency (<span class='orangeRedWeight'>FED</span>) is not NOT supported`);
+      $('.showResult').html(`<span class='orangeRedColorLW'>This non-existant currency (<span class='orangeRedWeight'>FED</span>) is NOT supported`);
     }
     else {
       const convertedValue = roundToTwo((inputAmount / baseRate) * targetRate);

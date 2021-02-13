@@ -7,48 +7,27 @@
 
 ## Description
 
-##### A web application where a user can type in an amount (in a currency of choice), choose FROM and TO currencies from the drop down, and see total amount in converted currency. The currency conversion is performed using the most recent exchange rate from ExchangeRate-API. Few other things that the application does is listed below...
+##### A web application where a user can type in an amount, choose FROM and TO currencies from the drop down, and see total amount in converted currency. The currency conversion is performed using the most recent exchange rate from ExchangeRate-API. Few other things that the application does is listed below...
 
-- Users should be able to convert between 160 different types of currencies.
+- User should be able to convert between 160 different types of currencies.
 - If the API call results in an error, the application returns a notification
-- If the query response doesn't include that particular currency, the application should return a notification that states the currency in question doesn't exist
-- If both TO and FROM currencies are same, application displays an error message
-
+- If the query response doesn't include a particular currency, the application returns a notification that states the currency in question doesn't exist
+- If both FROM and TO currencies are identical, application displays an error message
 - See below image of UI for the different scenario's described above
-![Image of UI for 3 different age Selections](./src/assets/images/PrintScreenShot.png)
-
-## Description
-
-#### Further Exploration
+![Image of UI for 3 different scenario's](./src/assets/images/PrintScreenShot.png)
 
 | **Spec** |
 
 ```
-Describe: Calculator.prototype.planetId()
 
-Test: "It should return the "planetId" property incremented by 1 with each call"
-
-Expect(Calculator.planetId.toEqual(0);
-
-Describe: Calculator.prototype.addPlanet(agePlanetBased: 187, estLifeExp: 277 })
-
-Test: "It should append a single object to "agePerPlanet()" property with each call"
-
-Expect(Calculator.agePerPlanet.toEqual({ mercury: { agePlanetBased: 187, estLifeExp: 277 } });
-
-Describe: Calculator.prototype.addAgeOnPlanets({ mercury: 0.24, venus: 0.62, earth: 1.00, mars: 1.88, jupiter: 11.86 }, { caucasian: 65, asian: 70, africanAmerican: 65, latino: 4 })
-
-Test: "It should correctly call method "addAgeOnPlanets()" and return an object with schema shown below (calls "addPlanet()" method equal lenght of planet array"
-
-Expect(Calculator.agePerPlanet).toEqual({ mercury: { agePlanetBased: 187, estLifeExp: 277 }, venus: { agePlanetBased: 72, estLifeExp: 111 }, earth: { agePlanetBased: 45, estLifeExp: 72 }, mars: { agePlanetBased: 23, estLifeExp: 41 }, jupiter: { agePlanetBased: 3, estLifeExp: 12 } });
+| Test | Behavior | Input    | Output   |
+| -------- | -------- | -------- | -------- |
+| 1 | Application lets user type in an amount, choose FROM and TO currencies from the drop down, and see total amount in converted currency | USD: $100.00; Currency: Indian Rupee (INR) | 7271.48 INR |
+| 2 | Application accepts 160 different currencies. | USD: $100.00; Currencies: Afghani (AFN), Algerian Dinar (DZD), Euro (EUR), Saudi Riyal (SAR), Russian Ruble (RUB), Mexican Peso (MXN) | 7721.36 AFN, 13299.81 DZD, 82.45 EUR, 375 SAR, 7400.98 RUB, 2000.06 MXN |
+| 3 | The program displays API call failures | * Insert a typo in API KEY* | Unexpected error: undefined |
+| 4 | If currency conversion is sought for a currency not supported by API, application returns a notification, stating the currency is NOT supported | FED | non-existant currency (FED) is NOT supported  |
 
 ```
-## Running tests from terminal using Jest and webpack
-
--   Ensure sure you have Jest installed, else use  [this link](https://www.learnhowtoprogram.com/intermediate-javascript/test-driven-development-and-environments-with-javascript/setting-up-jest)  to install it on your machine 
--   From main directory run  `$ npm run test`  to check if tests from  `__tests__`  directory pass or fail.
--   _(Note: this project has 100% line coverage for business logic with Jest)_
-
 ## Setup/Installation Requirements
 
 1. Clone this repository.
